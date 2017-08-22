@@ -9,7 +9,7 @@ import static com.example.android.quakereport.R.id.date;
 public class Earthquake {
 
     /** Magnitude of the earthquake */
-    private String mMagnitude;
+    private double mMagnitude;
 
     /** Location of the earthquake */
     private String mLocation;
@@ -17,26 +17,41 @@ public class Earthquake {
     /** Time of the earthquake */
     private long mTimeInMilliseconds;
 
+    /** Website URL of the earthquake */
+    private String mUrl;
 
     /**
      * Constructs a new {@link Earthquake} object.
      *
      * @param magnitude is the magnitude (size) of the earthquake
-     * @param location is the city location of the earthquake
+     * @param location is the location where the earthquake happened
      * @param timeInMilliseconds is the time in milliseconds (from the Epoch) when the
-     *  earthquake happened
+     *                           earthquake happened
      */
-    public Earthquake(String magnitude, String location, long timeInMilliseconds){
+    public Earthquake(double magnitude, String location, long timeInMilliseconds, String url) {
         mMagnitude = magnitude;
         mLocation = location;
         mTimeInMilliseconds = timeInMilliseconds;
+        mUrl = url;
     }
 
-    public String getMagnitude() { return mMagnitude; }
+    /**
+     * Returns the magnitude of the earthquake.
+     */
+    public double getMagnitude() {
+        return mMagnitude;
+    }
 
     public String getLocation() { return mLocation; }
 
-    public long getDate() { return mTimeInMilliseconds; }
+    public long getTimeInMilliseconds() { return mTimeInMilliseconds; }
+
+    /**
+     * Returns the website URL to find more information about the earthquake.
+     */
+    public String getUrl() {
+        return mUrl;
+    }
 
 
 }
